@@ -18,16 +18,16 @@
         <form method="post" >
             <div class="form-group">
                 <label for="exampleInputEmail1">用户名</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" name="admin_name" placeholder="请输入用户名">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="admin_name" placeholder="请输入用户名" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">密码</label>
-                <input type="password" class="form-control" id="exampleInputPassword1"  name="admin_password" placeholder="请输入密码">
+                <input type="password" class="form-control" id="exampleInputPassword1"  name="admin_password" placeholder="请输入密码" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">验证码</label>
                 <div>
-                    <input type="text" class="form-control" id="exampleInputPassword2" name="captcha" placeholder="请输入验证码" style="width: 40%;float: left">
+                    <input type="text" class="form-control" id="exampleInputPassword2" name="captcha" placeholder="请输入验证码" style="width: 40%;float: left" required>
                     <img onclick="this.src=this.src+'&rand='+Math.random()" src="?s=admin/login/captcha" style="cursor: pointer;margin-left: 20px" /></a>
                 </div>
             </div>

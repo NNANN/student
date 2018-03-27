@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label" style="line-height: 35px">班级名称</label>
                         <div class="col-sm-10">
-                        <input type="text" class="form-control" name="grade_name" id="inputEmail3" placeholder="班级名称">
+                        <input type="text" class="form-control" name="grade_name" id="inputEmail3" placeholder="班级名称" required>
                         </div>
                     </div>
             </div>

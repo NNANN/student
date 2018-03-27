@@ -49,9 +49,9 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">学生班级</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="grade_name">
+                        <select class="form-control" name="grade_id">
                             <?php foreach ($data as $k=>$v){ ?>
-                                <option value="<?php echo $v['grade_name']?>" <?php if ($v['grade_name']==$res['grade_name']){echo "selected";}?>><?php echo $v['grade_name']?></option>
+                                <option value="<?php echo $v['grade_id']?>" <?php if ($v['grade_id']==$res['grade_id']){echo "selected";}?>><?php echo $v['grade_name']?></option>
                             <?php }?>
                         </select>
                     </div>
@@ -67,22 +67,5 @@
     </div>
 </div>
 <?php //include "./static/footer.php"?>
-
-<script>
-    function del(obj,id) {
-        var _this = obj;
-        $.ajax({
-            url:"?s=admin/student/del",
-            type:"post",
-            data:{id:id},
-            success:function (result) {
-                $(_this).parents('tr').remove();
-                if(result==1){
-                    alert("删除成功");
-                }
-            }
-        })
-    }
-</script>
 </body>
 </html>

@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="inputEmail4" class="col-sm-2 control-label" >班级名称</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="grade_name" id="inputEmail4" placeholder="班级名称" value="<?php echo $data['grade_name']?>">
+                        <input type="text" class="form-control" name="grade_name" id="inputEmail4" placeholder="班级名称" value="<?php echo $data['grade_name']?>" required>
                     </div>
                 </div>
             </div>

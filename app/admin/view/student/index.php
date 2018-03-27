@@ -47,10 +47,10 @@
                         <td style="line-height: 30px"><?php echo $v["student_name"]?></td>
                         <td style="line-height: 30px"><?php echo $v["student_sex"]?></td>
                         <td style="line-height: 30px"><?php echo $v["student_age"]?></td>
-                        <td style="line-height: 30px"><?php echo $v["grade_name"]?></td>
+                        <td style="line-height: 30px"><?php foreach ($grade as $key=>$value){if($v['grade_id']==$value['grade_id']){echo $value['grade_name'];}}?></td>
                         <td><div class="btn-group" role="group" aria-label="...">
                                 <a href="?s=admin/student/edit&id=<?php echo $v["student_id"]?>"  class="btn btn-primary">修改</a>
-                                <a href="javascript:;" onclick="del(this,<?php echo $v["student_id"]?>)"  class="btn btn-default">删除</a>
+                                <a href="javascript:;" onclick="warning(<?php echo $v["student_id"];?>)"  class="btn btn-default" id="<?php echo $v["student_id"];?>">删除</a>
                             </div></td>
                     </tr>
                 <?php } ?>
@@ -63,20 +63,44 @@
 <?php //include "./static/footer.php"?>
 
 <script>
-    function del(obj,id) {
-        var _this = obj;
+    function warning(student_id) {
+        $("#warning").find(".comfirm").attr('student_id',student_id);
+        $("#warning").modal('show');
+    }
+    function del(obj) {
+        // var _this = obj;
+        // alert();
+        $("#warning").modal('hide');
+        var id = $(".comfirm").attr("student_id");
+        // alert(id);return;
         $.ajax({
             url:"?s=admin/student/del",
             type:"post",
             data:{id:id},
             success:function (result) {
-                $(_this).parents('tr').remove();
-                if(result==1){
-                    alert("删除成功");
-                }
+                $('#'+id).parents('tr').remove();
+                return;
             }
         })
     }
 </script>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="warning">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示：</h4>
+            </div>
+            <div class="modal-body">
+                <p>确认删除？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary comfirm" onclick="del(this)">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
 </html>

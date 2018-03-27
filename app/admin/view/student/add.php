@@ -26,20 +26,20 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">学生姓名</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="学生姓名" name="student_name">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="学生姓名" name="student_name" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">学生年龄</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPassword3" placeholder="学生年龄" name="student_age">
+                        <input type="text" class="form-control" id="inputPassword3" placeholder="学生年龄" name="student_age" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">学生性别</label>
                     <div class=" col-sm-10">
                         <label class="radio-inline">
-                            <input type="radio" name="student_sex" id="inlineRadio1" value="男"> 男
+                            <input type="radio" name="student_sex" id="inlineRadio1" checked value="男"> 男
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="student_sex" id="inlineRadio2" value="女"> 女
@@ -49,9 +49,10 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">学生班级</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="grade_name">
+                        <select class="form-control" name="grade_id" required>
+                            <option value="">请选择班级</option>
                             <?php foreach ($data as $k=>$v){ ?>
-                            <option value="<?php echo $v['grade_name']?>"><?php echo $v['grade_name']?></option>
+                                <option value="<?php echo $v['grade_id']?>"><?php echo $v['grade_name']?></option>
                             <?php }?>
                         </select>
                     </div>

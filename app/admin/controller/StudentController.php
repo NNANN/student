@@ -8,13 +8,16 @@ class StudentController extends CommonController {
     public static function index(){
 
 //        p($data);die;
+        $grade = Grade::get();
+//        p($grade);
         $data = Student::orderBy("student_id")->get();
-//        p($res);die;
-        return View::with(compact('data'))->make();
+//        p($data);die;
+        return View::with(compact('data','grade'))->make();
     }
 
     public function edit(){
-        $data = Grade::column('grade_name')->orderBy("grade_id")->get();
+        $data = Grade::orderBy("grade_id")->get();
+//        p($data);die;
         $res = Student::find($_GET['id']);
         if(IS_POST){
             $where = Student::getPriKey()."=".$_GET["id"];
@@ -25,7 +28,6 @@ class StudentController extends CommonController {
                 return $this->setRedirect("?s=admin/student/index")->message("修改成功");
             }
         }
-//        p($data);die;
 //        p($res);die;
         return View::with(compact('data','res'))->make();
     }
